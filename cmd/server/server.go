@@ -13,7 +13,7 @@ import (
 func main() {
 	config := configs.LoadConfig(".")
 
-	db, err := gorm.Open(sqlite.Open("file::memory:"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("file::memory:?cache=shared"), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}

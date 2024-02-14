@@ -1,6 +1,7 @@
 package entity
 
 type Exchange struct {
+	ID            uint   `gorm:"primaryKey"`
 	Code          string `json:"code"`
 	CodeIn        string `json:"codein"`
 	Name          string `json:"name"`

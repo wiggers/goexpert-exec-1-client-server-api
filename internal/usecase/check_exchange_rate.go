@@ -45,7 +45,7 @@ func (c *checkExchangeRate) Execute() (*ExchangeOutputDto, error) {
 	ctxBD, cancelCtx := context.WithTimeout(ctxBD, 10*time.Millisecond)
 	defer cancelCtx()
 
-	c.Repository.Save(ctxBD, data)
+	err = c.Repository.Save(ctxBD, data)
 	if err != nil {
 		log.Println(err)
 		return nil, err

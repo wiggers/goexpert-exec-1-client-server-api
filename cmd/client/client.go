@@ -29,6 +29,11 @@ func main() {
 	}
 	defer resp.Body.Close()
 
+	if resp.StatusCode != http.StatusOK {
+		log.Println("Timeout exceeded")
+		panic("Timeout exceeded")
+	}
+
 	body, err := io.ReadAll(resp.Body)
 	stop(err)
 
